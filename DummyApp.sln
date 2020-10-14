@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MavlinkTestServer", "MavlinkTestServer.csproj", "{9CD1BC92-2049-437A-9B44-1B5A0A3D6A68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CD1BC92-2049-437A-9B44-1B5A0A3D6A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD1BC92-2049-437A-9B44-1B5A0A3D6A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD1BC92-2049-437A-9B44-1B5A0A3D6A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD1BC92-2049-437A-9B44-1B5A0A3D6A68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C432EB5-AAA7-4FAC-87AA-C3D69FABC8A4}
+	EndGlobalSection
+EndGlobal
