@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace MavlinkTestServer
 {
@@ -48,7 +49,7 @@ namespace MavlinkTestServer
                 byte[] truncArray = new byte[numberOfBytesRead];
                 Array.Copy(bytesIn_, truncArray, truncArray.Length);
                 MAVLink.MAVLinkMessage message = new MAVLink.MAVLinkMessage(truncArray);
-                Console.WriteLine(message.ToString());
+                Console.WriteLine("TCP Server GOT: " + message.ToString());
                 bytesIn_ = new byte[BUFF_SIZE];
                 AsyncListen();
             }
@@ -61,22 +62,29 @@ namespace MavlinkTestServer
 
         public void SendAll()
         {
-            for (float i = 1; i <= 6; i++)
-            {
-                Send(5000, i, 11.0F + i / 10, 22.0F + i / 10, 33.0F + i / 10, 44.0F + i / 10, 2340, 1170);
-            }
-            Send(5001, 55.77F, 66.77F, 77.77F, 0, 0, 2340, 1170);
-            Send(5002, 88.8F, 99.8F, 111.8F, 222.8F, 0, 2340, 1170);
-            Send(5003, 12.34F, 23.45F, 34.56F, 45.67F, 56.78F, 2340, 1170);
-            Send(5004, 0F, 1F, 0F, 1F, 0F, 2340, 1170);
-            Send(5005, 1.1F, 2.2F, 3.3F, 4.4F, 5.5F, 6.6F, 1170);
-            Send(5006, 6.6F, 21.12F, 31.13F, 4.4F, 5.5F, 2340, 1170);
-            Send(5007, 98.7F, 87.6F, 76.5F, 65.4F, 54.3F, 43.2F, 1170);
-            Send(5008, 111.1F, 87.6F, 76.5F, 65.4F, 54.3F, 2340, 1170);
-            //Send(5009, 1F, 0F, 1F, 0F, 1F, 0F, 1170);
-            Send(5010, 2730, 333.33F, 1F, 46F, 55F, 2340, 1170);
-            Send(5011, 100F, 333.33F, 1F, 46F, 55F, 2340, 1170);
-            Send(5012, 19F, 28F, 37F, 46F, 55F, 2340, 1170);
+            // for (float i = 1; i <= 6; i++)
+            // {
+            //     Send(5000, i, 11.0F + i / 10, 22.0F + i / 10, 33.0F + i / 10, 44.0F + i / 10, 2340, 1170);
+            // }
+            // Send(5001, 55.77F, 66.77F, 77.77F, 0, 0, 2340, 1170);
+            // Send(5002, 88.8F, 99.8F, 111.8F, 222.8F, 0, 2340, 1170);
+            // Send(5003, 12.34F, 23.45F, 34.56F, 45.67F, 56.78F, 2340, 1170);
+            // Send(5004, 0F, 1F, 0F, 1F, 0F, 2340, 1170);
+            // Send(5005, 1.1F, 2.2F, 3.3F, 4.4F, 5.5F, 6.6F, 1170);
+            // Send(5006, 6.6F, 21.12F, 31.13F, 4.4F, 5.5F, 2340, 1170);
+            // Send(5007, 98.7F, 87.6F, 76.5F, 65.4F, 54.3F, 43.2F, 1170);
+            // Send(5008, 111.1F, 87.6F, 76.5F, 65.4F, 54.3F, 2340, 1170);
+            // //Send(5009, 1F, 0F, 1F, 0F, 1F, 0F, 1170);
+            // Send(5010, 2730, 333.33F, 1F, 46F, 55F, 2340, 1170);
+            // Send(5011, 100F, 333.33F, 1F, 46F, 55F, 2340, 1170);
+            // Send(5012, 19F, 28F, 37F, 46F, 55F, 2340, 1170);
+            // float initial = 5000;
+            // for (float i = 500; i  >= 0; i = i - 50)
+            // {
+            //     Thread.Sleep(50);
+            //     Send(5011, 100F, 0, 1F, i, initial, 0, 0);
+            //     Console.WriteLine("UDPServer sent 5011 message, curr Fuel is: " + i);
+            // }
         }
         // TODO: turn to send function to be async 
         readonly object readlock = new object();
