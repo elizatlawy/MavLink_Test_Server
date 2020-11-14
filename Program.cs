@@ -15,7 +15,7 @@ namespace MavlinkTestServer
             int i = 0;
             while (true)
             {
-                udpServer.SendHB();
+                //udpServer.SendHB();
                 //sr.SendHB();
                 //tcpServer.SendHB();
                 Thread.Sleep(500);
